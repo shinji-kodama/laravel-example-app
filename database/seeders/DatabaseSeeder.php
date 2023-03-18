@@ -18,5 +18,28 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // 追記開始
+        \App\Models\User::create([
+            'name' => 'テストユーザ',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'ぼやき太郎',
+            'email' => 'boyaki@example.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        \App\Models\Tweet::create([
+            'message' => 'テストユーザによる投稿',
+            'user_id' => 1
+        ]);
+
+        \App\Models\Tweet::create([
+            'message' => 'ぼやき太郎による投稿',
+            'user_id' => 2
+        ]);
     }
 }

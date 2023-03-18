@@ -32,7 +32,12 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // auth関数は、Authenticatorインスタンスを返します。Authファサードの代わりに使用できます。
+        $tweet = Tweet::create([
+            'message' => $request->message,
+            'user_id' => auth()->user()->id
+        ]); // データを新規作成
+        return redirect()->route('tweets.index');
     }
 
     /**
